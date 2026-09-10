@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+
 public class functional {
     public static void main(String[] args) {
         double playerHp = 100;
@@ -5,11 +7,21 @@ public class functional {
         int playerDamage = 20;
         double bossDamage = 10.0;
         double playerArmor = 0.05;
-        int playerAttacks = args.length > 0 ? Integer.parseInt(args[0]): 1;
         boolean isPlayerAlive = true;
         boolean isBossAlive = true;
-        boolean isPlayersSwordPoisoned = args.length > 1 && Boolean.parseBoolean(args[1]);
-        String playerState = args.length > 2 ? args[2]: "Idle";
+        int playerAttacks = 1;
+        boolean isPlayersSwordPoisoned = false;
+        String playerState = "Idle";
+
+        try {
+            playerAttacks = args.length > 0 ? Integer.parseInt(args[0]): 1;
+            isPlayersSwordPoisoned = args.length > 1 && Boolean.parseBoolean(args[1]);
+            playerState = args.length > 2 ? args[2]: "Idle";
+        } catch (NumberFormatException e) {
+            System.out.println("ожидаемые типы данных: целочисленный, логический, строка");
+            System.exit(0);
+        }
+
 
         int score = 100;
         int iteration = 0;

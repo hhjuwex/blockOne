@@ -9,6 +9,8 @@ public class Operators {
         bossHp ++;
         bossHp += speed;
 
+        byte binaryAnd = 10 & 110;
+
         boolean bossIsDead = damage > bossHp;
         boolean playerIsDead = damage > playerHp;
         boolean gameOver = bossIsDead || playerIsDead;
@@ -17,6 +19,7 @@ public class Operators {
         boolean ternaryOperator = 100 > 101 ? true: false;
 
         int bitwise = damage >> 1;
+        int bitwise2 = damage >>> 1;
 
     }
 }
